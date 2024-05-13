@@ -35,6 +35,6 @@ int main() {
   Singleton::get_instance().data = 50;
 
   std::cout << "Sigleton3.data -->" << Singleton::get_instance().data << "\n";
-
+  /***/
   return 0;
 }
