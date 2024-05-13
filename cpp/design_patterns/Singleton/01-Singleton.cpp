@@ -18,6 +18,10 @@ class Singleton {
     static Singleton instance;
     return instance;
   }
+  Singleton(const Singleton&) = delete;  // copy constructor
+  Singleton(Singleton&&) = delete;       // move constructor
+  Singleton& operator=(const Singleton&) = delete;
+  Singleton& operator=(Singleton&&) = delete;
 };
 
 int main() {
@@ -35,6 +39,14 @@ int main() {
   Singleton::get_instance().data = 50;
 
   std::cout << "Sigleton3.data -->" << Singleton::get_instance().data << "\n";
-  /***/
+  /*Copy constructor */
+  // Singleton singletonN = singleton;
+
+  // singletonN.data = 100;
+  singleton.data = 50;
+
+  std::cout << "Singleton1.data --> " << singleton.data << "\n";
+  // std::cout << "SingletonN.data --> " << singletonN.data << "\n";
+
   return 0;
 }
