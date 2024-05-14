@@ -38,4 +38,9 @@ class Person {
   int age;
 };
 
-int main() {}
+int main() {
+  Person p1("mohamed", 24);
+  Person p2("ahmed", 20);
+  bool t = p1 > p2;
+  std::cout << t << "\n";
+}
