@@ -26,7 +26,7 @@ QString Location::getMyCity(Ui::MainWindow* ui){
 
     QString responseData= reply->readAll();
 
-    QObject::connect(reply, &QNetworkReply::finished, [=]() {
+    connect(reply, &QNetworkReply::finished, [=]() {
           if (reply->error() == QNetworkReply::NoError) {
             QString responseData = reply->readAll();
 
