@@ -2,6 +2,7 @@
 #include <iostream>
 class String {
  public:
+  String() = default;
   String(const char* string) {
     printf("created\n");
     length = stringLength(string);
@@ -21,6 +22,13 @@ class String {
     length = other.length;
     str = other.str;
     other.str = nullptr;
+  }
+  String& operator=(String&& other) {
+    printf("moved\n");
+    length = other.length;
+    str = other.str;
+    other.str = nullptr;
+    return *this;
   }
 
   void print() {

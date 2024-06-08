@@ -1,2 +1,10 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/img">
+        <file>images/celsius.jpg</file>
+        <file>images/Fehrenheit.png</file>
+        <file>images/dropDown.png</file>
+        <file>images/search.png</file>
+        <file>images/night.jpg</file>
+        <file>images/sunny.jpg</file>
+    </qresource>
+</RCC>
