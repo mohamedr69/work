@@ -1,5 +1,7 @@
 #include <iostream>
-
+#include <mutex>
+#include <thread>
+std::mutex m;
 class Protocol {
  public:
   virtual void defineProtocol() = 0;
@@ -30,9 +32,10 @@ class Proxy : Protocol {
   Protocol* protocol;
 
  public:
-  Proxy(Protocol* p) : protocol(p) {}
+  Proxy(Protocol* p) : protocol(p) { m.lock(); }
   virtual void defineProtocol() { protocol->defineProtocol(); }
   virtual void request() { protocol->request(); }
+  ~Proxy() { m.unlock(); }
 };
 
 int main() {
