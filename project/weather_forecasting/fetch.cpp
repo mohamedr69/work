@@ -7,7 +7,7 @@
 #include <QUrl>
 
 #include <QPushButton>
-#include <QJsonDocument>
+#include <SDocument>
 #include <QJsonObject>
 #include <QJsonValue>
 
@@ -20,20 +20,6 @@ Fetch::~Fetch(){
 
 QString Fetch::fetchWeather( Ui::MainWindow* ui, QString city,const QString &status)
 {
-    //Ui::MainWindow *ui = MainWindow::getUI();
-
-
-       /*if (ui->cityLineEdit->text() == "") {
-         //city = "Cairo";
-       } else {
-         city = ui->cityLineEdit->text();
-       }*/
-       /*if(status == "YES"){
-           city = ui->cityLineEdit->text();
-
-       }else if(status == "NO"){
-
-       }*/
     static int c = 0;
 
        std::string apiKey = "bc3db57652d5442eaae121936242805";
@@ -41,7 +27,7 @@ QString Fetch::fetchWeather( Ui::MainWindow* ui, QString city,const QString &sta
            "http://api.weatherapi.com/v1/"
            "current.json?key=bc3db57652d5442eaae121936242805&q=" +
            city;
-
+S
         QNetworkRequest request(apiUrl);
         QNetworkReply *reply = Fetch::manager->get(request);
 

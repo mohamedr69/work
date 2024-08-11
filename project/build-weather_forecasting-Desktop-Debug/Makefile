@@ -53,14 +53,18 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../weather_forecasting/fetch.cpp \
+		../weather_forecasting/json.cpp \
 		../weather_forecasting/location.cpp \
 		../weather_forecasting/main.cpp \
-		../weather_forecasting/mainwindow.cpp qrc_Resources.cpp \
+		../weather_forecasting/mainwindow.cpp \
+		../weather_forecasting/network.cpp qrc_Resources.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = fetch.o \
+		json.o \
 		location.o \
 		main.o \
 		mainwindow.o \
+		network.o \
 		qrc_Resources.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -154,11 +158,15 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../weather_forecasting/weather_forecasting.pro ../weather_forecasting/fetch.h \
+		../weather_forecasting/json.h \
 		../weather_forecasting/location.h \
-		../weather_forecasting/mainwindow.h ../weather_forecasting/fetch.cpp \
+		../weather_forecasting/mainwindow.h \
+		../weather_forecasting/network.h ../weather_forecasting/fetch.cpp \
+		../weather_forecasting/json.cpp \
 		../weather_forecasting/location.cpp \
 		../weather_forecasting/main.cpp \
-		../weather_forecasting/mainwindow.cpp
+		../weather_forecasting/mainwindow.cpp \
+		../weather_forecasting/network.cpp
 QMAKE_TARGET  = weather_forecasting
 DESTDIR       = 
 TARGET        = weather_forecasting
@@ -371,8 +379,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../weather_forecasting/Resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../weather_forecasting/fetch.h ../weather_forecasting/location.h ../weather_forecasting/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../weather_forecasting/fetch.cpp ../weather_forecasting/location.cpp ../weather_forecasting/main.cpp ../weather_forecasting/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../weather_forecasting/fetch.h ../weather_forecasting/json.h ../weather_forecasting/location.h ../weather_forecasting/mainwindow.h ../weather_forecasting/network.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../weather_forecasting/fetch.cpp ../weather_forecasting/json.cpp ../weather_forecasting/location.cpp ../weather_forecasting/main.cpp ../weather_forecasting/mainwindow.cpp ../weather_forecasting/network.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../weather_forecasting/mainwindow.ui $(DISTDIR)/
 
 
@@ -452,6 +460,9 @@ fetch.o: ../weather_forecasting/fetch.cpp ../weather_forecasting/fetch.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fetch.o ../weather_forecasting/fetch.cpp
 
+json.o: ../weather_forecasting/json.cpp ../weather_forecasting/json.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o json.o ../weather_forecasting/json.cpp
+
 location.o: ../weather_forecasting/location.cpp ../weather_forecasting/location.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o location.o ../weather_forecasting/location.cpp
@@ -467,6 +478,9 @@ mainwindow.o: ../weather_forecasting/mainwindow.cpp ../weather_forecasting/mainw
 		ui_mainwindow.h \
 		../weather_forecasting/location.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../weather_forecasting/mainwindow.cpp
+
+network.o: ../weather_forecasting/network.cpp ../weather_forecasting/network.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o network.o ../weather_forecasting/network.cpp
 
 qrc_Resources.o: qrc_Resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_Resources.o qrc_Resources.cpp

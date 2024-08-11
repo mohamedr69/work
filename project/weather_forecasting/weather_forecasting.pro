@@ -17,14 +17,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     fetch.cpp \
+    json.cpp \
     location.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    network.cpp
 
 HEADERS += \
     fetch.h \
+    json.h \
     location.h \
-    mainwindow.h
+    mainwindow.h \
+    network.h
 
 FORMS += \
     mainwindow.ui
